@@ -1,11 +1,4 @@
 ---
-- name: add toolchain repository for recent compiler versions
-  become: True
-  become_user: root
-  apt_repository:
-    repo: ppa:ubuntu-toolchain-r/test
-    state: present
-
 - name: Install fleur dependencies
   become: true
   become_user: "{{ root_user }}"
@@ -14,9 +7,8 @@
       state: latest
   with_items:
     - build-essential
-    - gfortran-6
-    - g++-6 
-    - gcc-6 
+    - gfortran
+    - gcc
     - openmpi-bin
     - libopenmpi-dev
     - libfftw3-dev
@@ -37,7 +29,7 @@
 
   # note: this does not throw an error, even if configure fails...
 - name: Configure fleur
-  shell: FC=gfortran-6 ./configure.sh AUTO
+  shell: FC=mpif90 ./configure.sh AUTO
   args:
     chdir: "{{ fleur_topdir }}"
     creates: "{{ fleur_topdir }}/build/Makefile"
