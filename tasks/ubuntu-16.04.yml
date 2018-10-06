@@ -37,7 +37,7 @@
 
   # note: this does not throw an error, even if configure fails...
 - name: Configure fleur
-  shell: FC=mpif90 ./configure.sh AUTO
+  shell: FC=gfortran-6 ./configure.sh AUTO
   args:
     chdir: "{{ fleur_topdir }}"
     creates: "{{ fleur_topdir }}/build/Makefile"
