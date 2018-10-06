@@ -8,14 +8,15 @@ env:
     - container_id: ansible-container
 
   matrix:
-    - name: Ubuntu-18.04
-      docker_image: marvelnccr/ubuntu-docker-base
-      version: 2.1
-      ansible_user: ubuntu
-    - name: Ubuntu-16.04
-      docker_image: marvelnccr/ubuntu-docker-base
-      version: 1.0
-      ansible_user: ubuntu
+    include:
+      - name: Ubuntu-18.04
+        docker_image: marvelnccr/ubuntu-docker-base
+        version: 2.1
+        ansible_user: ubuntu
+      - name: Ubuntu-16.04
+        docker_image: marvelnccr/ubuntu-docker-base
+        version: 1.0
+        ansible_user: ubuntu
 
 services:
   - docker
