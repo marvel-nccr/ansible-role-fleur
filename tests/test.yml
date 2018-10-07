@@ -1,4 +1,6 @@
 ---
 - hosts: localhost
+  vars:
+  - run_tests: True
   roles:
   - fleur
