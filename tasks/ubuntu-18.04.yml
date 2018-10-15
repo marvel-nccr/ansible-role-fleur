@@ -3,23 +3,19 @@
   become: true
   become_user: "{{ root_user }}"
   apt:
-      name: "{{ item }}"
-      state: latest
-  with_items:
-    - build-essential
-    - gfortran
-    - gcc
-    - openmpi-bin
-    - libopenmpi-dev
-    - libfftw3-dev
-    - libfftw3-mpi-dev
-    - liblapack-dev
-    - libblas-dev
-    - binutils-gold 
-    - git 
-    - cmake 
-    - libxml2-dev 
-    - doxygen
+    name:
+      - build-essential
+      - gfortran
+      - gcc
+      - openmpi-bin
+      - libopenmpi-dev
+      - liblapack-dev
+      - libblas-dev
+      - binutils-gold 
+      - git 
+      - cmake 
+      - libxml2-dev 
+      - doxygen
 
 - name: Get fleur source
   unarchive:
