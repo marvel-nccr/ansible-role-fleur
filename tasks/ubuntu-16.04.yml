@@ -1,6 +1,6 @@
 ---
 - name: add toolchain repository for recent compiler versions
-  become: True
+  become: true
   become_user: root
   apt_repository:
     repo: ppa:ubuntu-toolchain-r/test
@@ -13,25 +13,25 @@
     name:
       - build-essential
       - gfortran-6
-      - g++-6 
-      - gcc-6 
+      - g++-6
+      - gcc-6
       - openmpi-bin
       - libopenmpi-dev
       - liblapack-dev
       - libblas-dev
-      - binutils-gold 
-      - git 
-      - cmake 
-      - libxml2-dev 
+      - binutils-gold
+      - git
+      - cmake
+      - libxml2-dev
       - doxygen
 
 - name: Get fleur source
   unarchive:
     src: "{{ fleur_url }}"
     dest: "{{ fleur_code_folder }}"
-    remote_src: yes
+    remote_src: true
 
-  # note: this does not throw an error, even if configure fails...
+# note: this does not throw an error, even if configure fails...
 - name: Configure fleur
   shell: FC=gfortran-6 ./configure.sh AUTO
   args:

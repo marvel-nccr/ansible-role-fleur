@@ -11,19 +11,19 @@
       - libopenmpi-dev
       - liblapack-dev
       - libblas-dev
-      - binutils-gold 
-      - git 
-      - cmake 
-      - libxml2-dev 
+      - binutils-gold
+      - git
+      - cmake
+      - libxml2-dev
       - doxygen
 
 - name: Get fleur source
   unarchive:
     src: "{{ fleur_url }}"
     dest: "{{ fleur_code_folder }}"
-    remote_src: yes
+    remote_src: true
 
-  # note: this does not throw an error, even if configure fails...
+# note: this does not throw an error, even if configure fails...
 - name: Configure fleur
   shell: FC=mpif90 ./configure.sh AUTO
   args:

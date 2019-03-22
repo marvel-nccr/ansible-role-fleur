@@ -6,11 +6,11 @@ fleur_code_folder: "${HOME}"
 fleur_url: "http://www.flapw.de/pm/uploads/FLEUR/{{fleur_src}}.tgz"
 fleur_topdir: "{{ fleur_code_folder }}/fleur"
 fleur_executables:
-- name: fleur
-  folder: "{{ fleur_topdir }}/build"
-  plugin: fleur.fleur
-- name: inpgen
-  folder: "{{ fleur_topdir }}/build"
-  plugin: fleur.inpgen
+  - name: fleur
+    folder: "{{ fleur_topdir }}/build"
+    plugin: fleur.fleur
+  - name: inpgen
+    folder: "{{ fleur_topdir }}/build"
+    plugin: fleur.inpgen
 
 root_user: root
