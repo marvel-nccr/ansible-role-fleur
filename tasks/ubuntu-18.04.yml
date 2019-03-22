@@ -31,7 +31,7 @@
     creates: "{{ fleur_topdir }}/build/Makefile"
 
 - name: Make fleur executables
-  shell: "make"
+  command: "make"
   args:
     chdir: "{{ fleur_topdir }}/build"
     creates: "{{ fleur_topdir }}/build/fleur"

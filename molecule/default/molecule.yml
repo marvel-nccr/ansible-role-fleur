@@ -19,7 +19,9 @@ provisioner:
   lint:
     name: ansible-lint
     options:
-      x: ['ANSIBLE0013']
+      x:
+        - 'ANSIBLE0013'
+        - 'ANSIBLE0016'
   playbooks:
     converge: playbook.yml
 scenario:
