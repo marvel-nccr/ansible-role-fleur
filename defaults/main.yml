@@ -2,15 +2,14 @@
 fleur_version: "0.27"
 fleur_release: "MaXR3"
 fleur_src: fleur{{ fleur_release }}
-fleur_code_folder: "${HOME}"
-fleur_url: "http://www.flapw.de/pm/uploads/FLEUR/{{fleur_src}}.tgz"
+fleur_code_folder: "/tmp"
 fleur_topdir: "{{ fleur_code_folder }}/fleur"
+fleur_prefix: "/usr/local"
+fleur_url: "http://www.flapw.de/pm/uploads/FLEUR/{{fleur_src}}.tgz"
 fleur_executables:
   - name: fleur
-    folder: "{{ fleur_topdir }}/build"
+    folder: "{{ fleur_prefix }}/bin"
     plugin: fleur.fleur
   - name: inpgen
-    folder: "{{ fleur_topdir }}/build"
+    folder: "{{ fleur_prefix }}/bin"
     plugin: fleur.inpgen
-
-root_user: root

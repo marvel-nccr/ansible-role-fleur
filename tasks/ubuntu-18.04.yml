@@ -1,7 +1,6 @@
 ---
 - name: Install fleur dependencies
   become: true
-  become_user: "{{ root_user }}"
   apt:
     name:
       - build-essential
@@ -29,13 +28,3 @@
   args:
     chdir: "{{ fleur_topdir }}"
     creates: "{{ fleur_topdir }}/build/Makefile"
-
-- name: Make fleur executables
-  command: "make"
-  args:
-    chdir: "{{ fleur_topdir }}/build"
-    creates: "{{ fleur_topdir }}/build/fleur"
-  register: fleur_make
-
-- import_tasks: tests.yml
-  when: fleur_make.changed and run_tests is defined and run_tests
