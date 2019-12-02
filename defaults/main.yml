@@ -1,6 +1,6 @@
 ---
-fleur_version: "0.27"
-fleur_release: "MaXR3"
+fleur_version: "0.30"
+fleur_release: "MaX4"
 fleur_src: fleur{{ fleur_release }}
 fleur_code_folder: "/tmp"
 fleur_topdir: "{{ fleur_code_folder }}/fleur"
