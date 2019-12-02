@@ -9,19 +9,29 @@
   command: "make"
   args:
     chdir: "{{ fleur_topdir }}/build"
-    creates: "{{ fleur_topdir }}/build/fleur"
+    creates: "{{ fleur_topdir }}/build/fleur_MPI"
   register: fleur_make
 
 - import_tasks: tests.yml
   when: fleur_make.changed and run_tests is defined and run_tests
 
-- name: Install fleur executables
-  shell: "CMAKE_INSTALL_PREFIX={{ fleur_prefix }} make install"
+# Copy files manually for the moment, until fleur reintroduces "make install"
+- name: "Install fleur executable {{ item.name }}"
   become: true
-  args:
-    chdir: "{{ fleur_topdir }}/build"
-    creates: "{{ fleur_prefix }}/bin/fleur"
-  register: fleur_install
+  copy:
+    remote_src: true
+    src: "{{ fleur_topdir }}/build/{{ item.name }}"
+    dest: "{{ fleur_prefix }}/bin/{{ item.name }}"
+    mode: 0755
+  with_items: "{{ fleur_executables }}"
+
+# - name: Install fleur executables
+#   shell: "CMAKE_INSTALL_PREFIX={{ fleur_prefix }} make install"
+#   become: true
+#   args:
+#     chdir: "{{ fleur_topdir }}/build"
+#     creates: "{{ fleur_prefix }}/bin/fleur_MPI"
+#   register: fleur_install
 
 - include_role:
     name: release_notes
