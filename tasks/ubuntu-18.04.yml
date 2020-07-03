@@ -9,7 +9,7 @@
       - openmpi-bin
       - libopenmpi-dev
       - liblapack-dev
-      - libblas-dev
+      - libopenblas-dev
       - binutils-gold
       - git
       - cmake

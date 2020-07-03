@@ -1,7 +1,7 @@
 ---
 # note: this fails with "command" instead of "shell"
 - name: run fleur tests
-  shell: "ctest"
+  command: "ctest"
   args:
     chdir: "{{ fleur_topdir }}/build"
     creates: "{{ fleur_topdir }}/build/Testing"
