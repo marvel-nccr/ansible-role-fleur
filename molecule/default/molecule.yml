@@ -4,10 +4,10 @@ dependency:
   requirements_file: molecule/default/requirements.yml
 driver:
   name: docker
-lint:
-  name: yamllint
-  options:
-    config-file: molecule/default/yamllint.yml
+lint: |
+  set -e
+  yamllint .
+  ansible-lint -x 503 -x 305
 platforms:
   - name: instance
     image: "${DOCKER_IMAGE:-marvelnccr/ubuntu-docker-base}:${DOCKER_IMAGE_VERSION:-latest}"
@@ -23,10 +23,4 @@ provisioner:
         - 'ANSIBLE0013'
         - 'ANSIBLE0016'
   playbooks:
-    converge: playbook.yml
-scenario:
-  name: default
-verifier:
-  name: testinfra
-  lint:
-    name: flake8
+    converge: converge.yml
