@@ -12,9 +12,6 @@
     creates: "{{ fleur_topdir }}/build/fleur_MPI"
   register: fleur_make
 
-- import_tasks: tests.yml
-  when: fleur_make.changed and run_tests is defined and run_tests
-
 # Copy files manually for the moment, until fleur reintroduces "make install"
 - name: "Install fleur executable {{ item.name }}"
   become: true
