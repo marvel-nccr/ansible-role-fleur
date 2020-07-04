@@ -1,0 +1,14 @@
+---
+- name: Verify
+  hosts: all
+  become: true
+
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+  tasks:
+    - name: Bare include (free-form)
+      include_vars: ../../defaults/main.yml
+
+    - name: check plugin versions
+      include_tasks: tests/test_fleur.yml
