@@ -10,6 +10,8 @@ fleur_executables:
   - name: fleur_MPI
     folder: "{{ fleur_prefix }}/bin"
     plugin: fleur.fleur
+    version: "{{ fleur_version }}-{{ fleur_release }}"
   - name: inpgen
     folder: "{{ fleur_prefix }}/bin"
     plugin: fleur.inpgen
+    version: "{{ fleur_version }}-{{ fleur_release }}"
