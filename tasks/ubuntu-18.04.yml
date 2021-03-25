@@ -1,20 +1,19 @@
----
 - name: Install fleur dependencies
   become: true
   apt:
     name:
-      - build-essential
-      - gfortran
-      - gcc
-      - openmpi-bin
-      - libopenmpi-dev
-      - liblapack-dev
-      - libopenblas-dev
-      - binutils-gold
-      - git
-      - cmake
-      - libxml2-dev
-      - doxygen
+    - build-essential
+    - gfortran
+    - gcc
+    - openmpi-bin
+    - libopenmpi-dev
+    - liblapack-dev
+    - libopenblas-dev
+    - binutils-gold
+    - git
+    - cmake
+    - libxml2-dev
+    - doxygen
 
 - name: Get fleur source
   unarchive:
