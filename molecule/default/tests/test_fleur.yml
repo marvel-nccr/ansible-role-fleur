@@ -1,4 +1,3 @@
----
 - name: run fleur tests
   shell: "ctest"
   args:
